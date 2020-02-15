@@ -153,6 +153,11 @@ class Boundingbox extends Component {
         this.setState({ hoverIndex: -1 });
         // this.renderBoxes();
       };
+
+      this.canvas.addEventListener('click', (event) => {
+        this.props.onClicked(selectedBox.index)
+      }, false);
+      
     });
   }
 
@@ -412,6 +417,7 @@ Boundingbox.propTypes = {
   drawBox: PropTypes.func,
   drawLabel: PropTypes.func,
   onSelected: PropTypes.func,
+  onClicked: PropTypes.func,
   options: PropTypes.shape({
     colors: PropTypes.shape({
       normal: PropTypes.string,
@@ -428,6 +434,7 @@ Boundingbox.defaultProps = {
   separateSegmentation: false,
   segmentationTransparency: 190,
   onSelected() {},
+  onClicked() {},
   drawBox(canvas, box, color, lineWidth) {
 
     if(!box || typeof box === 'undefined')
