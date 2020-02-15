@@ -155,7 +155,7 @@ class Boundingbox extends Component {
       };
 
       this.canvas.addEventListener('click', (event) => {
-        this.props.onClicked(selectedBox.index)
+        this.props.onClicked(this.state.hoverIndex)
       }, false);
       
     });
